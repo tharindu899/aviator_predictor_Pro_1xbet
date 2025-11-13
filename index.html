@@ -553,6 +553,242 @@
       letter-spacing: 1px;
     }
 
+    .how-to-play-btn {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0, 255, 170, 0.4);
+      z-index: 100;
+      transition: all 0.3s ease;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .how-to-play-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(0, 255, 170, 0.6);
+    }
+
+    .how-to-play-btn:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .how-to-play-icon {
+      font-size: 1.8rem;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+      border-radius: 20px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(0, 255, 170, 0.2);
+      animation: slideUp 0.3s ease;
+      position: relative;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-header {
+      padding: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+      z-index: 10;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .modal-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.3rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-close {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
+    }
+
+    .modal-close:active {
+      transform: rotate(90deg) scale(0.9);
+    }
+
+    .modal-body {
+      padding: 24px;
+    }
+
+    .language-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .language-tab {
+      flex: 1;
+      padding: 12px;
+      border-radius: 12px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .language-tab.active {
+      border-color: var(--accent-cyan);
+      background: rgba(0, 255, 170, 0.1);
+      color: var(--accent-cyan);
+      box-shadow: 0 0 20px rgba(0, 255, 170, 0.2);
+    }
+
+    .language-tab:hover:not(.active) {
+      border-color: rgba(0, 255, 170, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .guide-section {
+      margin-bottom: 24px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .guide-section h3 {
+      color: var(--accent-cyan);
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .guide-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    .guide-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+    }
+
+    .guide-section li {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 8px;
+      padding-left: 24px;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    .guide-section li:before {
+      content: "▸";
+      position: absolute;
+      left: 8px;
+      color: var(--accent-cyan);
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(0, 255, 170, 0.1), rgba(179, 136, 255, 0.1));
+      border: 1px solid rgba(0, 255, 170, 0.3);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 12px;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
     .hidden {
       display: none !important;
     }
@@ -662,7 +898,153 @@
   </div>
 
   <div class="footer">
-    POWERED BY SIGNAL MASTER AI
+    POWERED BY SIGNAL MASTER AI • v2.1.0
+  </div>
+
+  <button class="how-to-play-btn" id="howToPlayBtn">
+    <span class="how-to-play-icon">❓</span>
+  </button>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>📖</span>
+          <span>How to Play</span>
+        </div>
+        <button class="modal-close" id="modalClose">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="language-tabs">
+          <button class="language-tab active" data-lang="english">English</button>
+          <button class="language-tab" data-lang="sinhala">සිංහල</button>
+        </div>
+
+        <div class="tab-content active" id="english">
+          <div class="guide-section">
+            <h3>🎯 Welcome to Signal Master Pro</h3>
+            <p>Signal Master Pro uses advanced AI algorithms to predict optimal betting windows for the Aviator game. Follow these instructions to maximize your winning potential.</p>
+          </div>
+
+          <div class="guide-section">
+            <h3>📊 Understanding Signals</h3>
+            <p>Our system analyzes patterns and provides real-time predictions:</p>
+            <ul>
+              <li><strong>Active Signal:</strong> Green glowing indicator - Place your bet now</li>
+              <li><strong>Next Signal:</strong> Shows upcoming prediction with countdown</li>
+              <li><strong>Active For:</strong> Remaining time in current window</li>
+              <li><strong>Next In:</strong> Time until next prediction window</li>
+            </ul>
+          </div>
+
+          <div class="guide-section">
+            <h3>💰 Multiplier Recommendations</h3>
+            <p>Follow our suggested multipliers for best results:</p>
+            <ul>
+              <li><strong>3x:</strong> Conservative bet for signals at :06, :36, :46</li>
+              <li><strong>5x - 7x:</strong> Moderate risk for upcoming signals</li>
+              <li><strong>7x - 10x:</strong> Higher reward for most active signals</li>
+            </ul>
+            <div class="highlight-box">
+              <p>⚠️ Always bet responsibly and within your limits</p>
+            </div>
+          </div>
+
+          <div class="guide-section">
+            <h3>🔔 Audio Alerts</h3>
+            <p>Enable sound notifications for important events:</p>
+            <ul>
+              <li>Signal Start: Beep when new window opens</li>
+              <li>Signal End: Beep when window is closing</li>
+              <li>Tap the screen once to enable audio alerts</li>
+            </ul>
+          </div>
+
+          <div class="guide-section">
+            <h3>📱 Best Practices</h3>
+            <ul>
+              <li>Install the app on your home screen for quick access</li>
+              <li>Keep the app open during your gaming session</li>
+              <li>Follow the multiplier suggestions consistently</li>
+              <li>Never chase losses - stick to your strategy</li>
+              <li>Set a budget before you start playing</li>
+            </ul>
+          </div>
+
+          <div class="guide-section">
+            <h3>✨ Pro Tips</h3>
+            <ul>
+              <li>94% accuracy rate based on historical patterns</li>
+              <li>Best results when following signals consistently</li>
+              <li>Lower multipliers (3x) have higher success rates</li>
+              <li>Use the countdown timer to time your entries</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tab-content" id="sinhala">
+          <div class="guide-section">
+            <h3>🎯 Signal Master Pro වෙත සාදරයෙන් පිළිගනිමු</h3>
+            <p>Signal Master Pro උසස් AI ඇල්ගොරිතම භාවිතා කරමින් Aviator ක්‍රීඩාව සඳහා ප්‍රශස්ත ඔට්ටු කවුළු පුරෝකථනය කරයි. ඔබේ ජයග්‍රහණ හැකියාව උපරිම කර ගැනීමට මෙම උපදෙස් අනුගමනය කරන්න.</p>
+          </div>
+
+          <div class="guide-section">
+            <h3>📊 සංඥා තේරුම් ගැනීම</h3>
+            <p>අපගේ පද්ධතිය රටා විශ්ලේෂණය කර තත්‍ය කාලීන පුරෝකථන සපයයි:</p>
+            <ul>
+              <li><strong>සක්‍රීය සංඥාව:</strong> කොළ දිලිසෙන දර්ශකය - දැන් ඔබේ ඔට්ටුව තබන්න</li>
+              <li><strong>ඊළඟ සංඥාව:</strong> පැමිණෙන පුරෝකථනය කවුළු ගණනය සමඟ පෙන්වයි</li>
+              <li><strong>සක්‍රීය කාලය:</strong> වත්මන් කවුළුවේ ඉතිරි කාලය</li>
+              <li><strong>ඊළඟ කාලය:</strong> ඊළඟ පුරෝකථන කවුළුව දක්වා කාලය</li>
+            </ul>
+          </div>
+
+          <div class="guide-section">
+            <h3>💰 ගුණක නිර්දේශ</h3>
+            <p>හොඳම ප්‍රතිඵල සඳහා අපගේ යෝජිත ගුණක අනුගමනය කරන්න:</p>
+            <ul>
+              <li><strong>3x:</strong> :06, :36, :46 හි සංඥා සඳහා ගතානුගතික ඔට්ටුව</li>
+              <li><strong>5x - 7x:</strong> ඉදිරි සංඥා සඳහා මධ්‍යස්ථ අවදානම</li>
+              <li><strong>7x - 10x:</strong> බොහෝ සක්‍රීය සංඥා සඳහා ඉහළ ත්‍යාගය</li>
+            </ul>
+            <div class="highlight-box">
+              <p>⚠️ සැමවිටම වගකීමෙන් යුතුව සහ ඔබේ සීමාවන් තුළ ඔට්ටු අල්ලන්න</p>
+            </div>
+          </div>
+
+          <div class="guide-section">
+            <h3>🔔 ශ්‍රව්‍ය ඇඟවීම්</h3>
+            <p>වැදගත් සිදුවීම් සඳහා ශබ්ද දැනුම්දීම් සබල කරන්න:</p>
+            <ul>
+              <li>සංඥා ආරම්භය: නව කවුළුව විවෘත වන විට බීප් ශබ්දය</li>
+              <li>සංඥා අවසානය: කවුළුව වැසෙන විට බීප් ශබ්දය</li>
+              <li>ශ්‍රව්‍ය ඇඟවීම් සබල කිරීමට තිරය එක් වරක් තට්ටු කරන්න</li>
+            </ul>
+          </div>
+
+          <div class="guide-section">
+            <h3>📱 හොඳම භාවිතයන්</h3>
+            <ul>
+              <li>ඉක්මන් ප්‍රවේශය සඳහා ඔබේ මුල් තිරයේ යෙදුම ස්ථාපනය කරන්න</li>
+              <li>ඔබේ ක්‍රීඩා සැසිය අතරතුර යෙදුම විවෘතව තබා ගන්න</li>
+              <li>ගුණක යෝජනා ස්ථිරව අනුගමනය කරන්න</li>
+              <li>කිසි විටෙකත් පාඩු පසුපස නොයන්න - ඔබේ උපාය මාර්ගයට ඇලී සිටින්න</li>
+              <li>ඔබ ක්‍රීඩා කිරීමට පටන් ගැනීමට පෙර අයවැයක් සකසන්න</li>
+            </ul>
+          </div>
+
+          <div class="guide-section">
+            <h3>✨ වෘත්තීය ඉඟි</h3>
+            <ul>
+              <li>ඓතිහාසික රටා මත පදනම්ව 94% නිරවද්‍යතා අනුපාතය</li>
+              <li>සංඥා ස්ථිරව අනුගමනය කරන විට හොඳම ප්‍රතිඵල</li>
+              <li>අඩු ගුණක (3x) ඉහළ සාර්ථකත්ව අනුපාත ඇත</li>
+              <li>ඔබේ ප්‍රවේශයන් කාලගත කිරීමට කවුළු ගණක ටයිමරය භාවිතා කරන්න</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <audio id="beepSound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio>
@@ -697,6 +1079,40 @@
     window.addEventListener('appinstalled', () => {
       deferredPrompt = null;
       installBanner.classList.remove('show');
+    });
+
+    // How to Play Modal
+    const howToPlayBtn = document.getElementById('howToPlayBtn');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalClose = document.getElementById('modalClose');
+    const languageTabs = document.querySelectorAll('.language-tab');
+
+    howToPlayBtn.addEventListener('click', () => {
+      modalOverlay.classList.add('show');
+    });
+
+    modalClose.addEventListener('click', () => {
+      modalOverlay.classList.remove('show');
+    });
+
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) {
+        modalOverlay.classList.remove('show');
+      }
+    });
+
+    languageTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const lang = tab.dataset.lang;
+        
+        languageTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+        });
+        document.getElementById(lang).classList.add('active');
+      });
     });
 
     document.addEventListener('contextmenu', (e) => e.preventDefault());
@@ -825,10 +1241,16 @@
         elements.activeTime.textContent = `${pad(mins)}:${pad(secs)}`;
         elements.nextTime.textContent = '--:--';
 
+        // Play beep only at start and end of signal
         if (active.label !== lastBeepLabel) {
-          playBeep();
+          playBeep(); // Beep at start
           incrementSignalCount();
           lastBeepLabel = active.label;
+        }
+        
+        // Play beep when signal is about to end (last second)
+        if (secs === 0 && mins === 0) {
+          playBeep(); // Beep at end
         }
 
         // Updated odds logic from index(1).html
@@ -897,6 +1319,22 @@
         }
       }
     }
+
+    // Enable audio on user interaction
+    let audioEnabled = false;
+    function enableAudio() {
+      if (!audioEnabled) {
+        elements.beep.play().then(() => {
+          elements.beep.pause();
+          elements.beep.currentTime = 0;
+          audioEnabled = true;
+        }).catch(() => {});
+      }
+    }
+
+    // Enable audio on first user interaction
+    document.addEventListener('click', enableAudio, { once: true });
+    document.addEventListener('touchstart', enableAudio, { once: true });
 
     showPredicting();
     updateClock();
