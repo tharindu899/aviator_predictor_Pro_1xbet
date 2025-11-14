@@ -508,6 +508,13 @@
       border: 1px solid rgba(0, 255, 170, 0.15);
       position: relative;
       overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+      border-color: rgba(0, 255, 170, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 255, 170, 0.1);
     }
 
     .info-card::before {
@@ -529,12 +536,29 @@
       font-size: 1rem;
       font-weight: 600;
       color: var(--accent-cyan);
-      margin-bottom: 12px;
+      margin-bottom: 0;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 8px;
       position: relative;
       z-index: 1;
+    }
+
+    .info-title-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toggle-icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+      color: var(--accent-cyan);
+    }
+
+    .toggle-icon.expanded {
+      transform: rotate(180deg);
     }
 
     .info-text {
@@ -546,6 +570,16 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    }
+
+    .info-text.expanded {
+      max-height: 1000px;
+      opacity: 1;
+      margin-top: 16px;
     }
 
     .info-step {
@@ -706,13 +740,16 @@
       </div>
     </div>
 
-    <div class="info-card">
+    <div class="info-card" id="infoCard">
       <div class="info-title">
-        <span>💡</span>
-        <span>How to Play</span>
+        <div class="info-title-text">
+          <span>💡</span>
+          <span>How to Play</span>
+        </div>
+        <span class="toggle-icon" id="toggleIcon">▼</span>
       </div>
     
-      <div class="info-text">
+      <div class="info-text" id="infoText">
     
         <div class="info-step">
           <span class="step-number">1</span>
@@ -749,7 +786,7 @@
           <span class="step-text">
             <span class="highlight">Signal වේලාව</span> තුළ 
             <span class="highlight">bets</span> කරමින් යන විට  
-            <span class="highlight">2ට අඩු (නිල්) odds 3ක්</span> ආවොත්  
+            <span class="highlight">2ඟ අඩු (නිල්) odds 3ක්</span> ආවොත්  
             එය <span class="highlight-danger">අවදානමක්</span>.
           </span>
         </div>
@@ -758,8 +795,8 @@
           <span class="step-number">5</span>
           <span class="step-text">
             <span class="highlight">Signal එකට</span> ආසන්නව 
-            <span class="highlight">විනාඩි 1ක්</span> ඇතුළත 
-            <span class="highlight">High Odd</span> එකක් ලැබුණால்  
+            <span class="highlight">විනාඩි 1ක්</span> ඉතුරු  
+            <span class="highlight">High Odd</span> එකක් ලැබුණාල්  
             <span class="highlight-danger">Bets කිරීම</span> අවදානම්.
           </span>
         </div>
@@ -1025,6 +1062,19 @@
     // Enable audio on first user interaction
     document.addEventListener('click', enableAudio, { once: true });
     document.addEventListener('touchstart', enableAudio, { once: true });
+
+    // Toggle "How to Play" section
+    const infoCard = document.getElementById('infoCard');
+    const infoText = document.getElementById('infoText');
+    const toggleIcon = document.getElementById('toggleIcon');
+
+    infoCard.addEventListener('click', (e) => {
+      // Prevent toggling if clicking on a link or interactive element
+      if (e.target.closest('a, button')) return;
+      
+      infoText.classList.toggle('expanded');
+      toggleIcon.classList.toggle('expanded');
+    });
 
     showPredicting();
     updateClock();
