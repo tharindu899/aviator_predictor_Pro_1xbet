@@ -543,6 +543,62 @@
       line-height: 1.6;
       position: relative;
       z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .info-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      border-left: 3px solid var(--accent-cyan);
+      transition: all 0.3s ease;
+    }
+
+    .info-step:hover {
+      background: rgba(0, 255, 170, 0.05);
+      transform: translateX(4px);
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--bg-primary);
+      box-shadow: 0 0 15px rgba(0, 255, 170, 0.3);
+    }
+
+    .step-text {
+      flex: 1;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    .highlight {
+      color: var(--accent-cyan);
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(0, 255, 170, 0.3);
+    }
+
+    .highlight-danger {
+      color: var(--danger);
+      font-weight: 700;
+      text-shadow: 0 0 10px rgba(255, 71, 87, 0.4);
+      background: rgba(255, 71, 87, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
     }
 
     .footer {
@@ -653,17 +709,24 @@
     <div class="info-card">
       <div class="info-title">
         <span>💡</span>
-        <span>How It Works</span>
+        <span>How to Play</span>
       </div>
       <div class="info-text">
-        <ul>
-          <li>ලබාදී ඇති විනාඩි 2ක කාලය තුළ අවසාන තත්පරය තෙක් bets කරන්න.</li>
-          <li>Signal වේලාව තුළ Bets කරමින් ඉදිරියට යන විට 2ට අඩු (නිල්) Odd 3ක් පැමිණ ඇත්නම්, එය අවදානම් ආරම්භයකි.</li>
-          <li>Signal එකට ආසන්නව විනාඩි 1ක් ඇතුළත High Odd එකක් ලැබී ඇත්නම්, එම වේලාව තුළ Bets කිරීමේදී අවදානමක් ඇත.</li>
-        </ul>
+        <div class="info-step">
+          <span class="step-number">1</span>
+          <span class="step-text">ලැබෙනා විනාඩි <span class="highlight">2ක</span> කාලය තුළ <span class="highlight">අවසාන තත්පරය</span> තෙක් <span class="highlight">bets</span> කරන්න.</span>
+        </div>
+        <div class="info-step">
+          <span class="step-number">2</span>
+          <span class="step-text"><span class="highlight">Signal</span> වේලාව තුළ <span class="highlight">Bets</span> කරමින් ඉදිරියට යන විට <span class="highlight">2ට අඩු (නිල්) Odd 3ක්</span> පමිණ ඉත්නම්, එය <span class="highlight-danger">අවදානමක්</span>.</span>
+        </div>
+        <div class="info-step">
+          <span class="step-number">3</span>
+          <span class="step-text"><span class="highlight">Signal</span> එකට ආසන්නව <span class="highlight">විනාඩි 1ක්</span> ඉතුළත <span class="highlight">High Odd</span> එකක් ලැබී ඉත්නම්, එම වේලාව තුළ <span class="highlight">Bets</span> කිරුමෙදී <span class="highlight-danger">අවදානමක්</span> ඉත.</span>
+        </div>
       </div>
-     </div>
     </div>
+  </div>
 
   <div class="footer">
     POWERED BY SIGNAL MASTER AI • v2.1.0
